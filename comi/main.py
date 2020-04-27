@@ -45,6 +45,6 @@ def main(source, clear_cache):
         cache.set(url, commands)
 
     perl_part = "perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>); $_ }'"
-    command = f"cat {temp_commands_path} | fzf --tac | {perl_part}"
+    command = f"cat {temp_commands_path} | fzf --tac | {perl_part} ; echo"
 
     subprocess.call(command, shell=True)
